@@ -29,7 +29,15 @@ class ReviewVerifierTest {
 
     boolean result = reviewVerifier.doesMeetQualityStandards(review);
     assertFalse(result, "ReviewVerifier did not detect swear word.");
-//    assertFalse(result);
-//    assertEquals(false, result);
   }
+
+  @Test
+  @DisplayName("Should fail when review contains 'lorem ipsum'")
+  void testLoremIpsum() {
+    String review = "lorem ipsum .........";
+
+    boolean result = reviewVerifier.doesMeetQualityStandards(review);
+    assertFalse(result, "ReviewVerifier did not detect lorem ipsum.");
+  }
+
 }
