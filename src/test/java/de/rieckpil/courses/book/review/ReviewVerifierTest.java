@@ -46,7 +46,9 @@ class ReviewVerifierTest {
 
   @ParameterizedTest
   @CsvFileSource(resources = "/badReview.csv")
-  void shouldFailWhenReviewIsOfBadQuality(String review) {
+  void shouldFailWhenReviewIsOfBadQuality(String review) throws InterruptedException {
+
+    Thread.sleep(1000);
     boolean result = reviewVerifier.doesMeetQualityStandards(review);
     assertFalse(result, "ReviewVerifier did not detect bad review.");
   }
