@@ -28,6 +28,8 @@ class ReviewVerifierTest {
     String review = "This book is shit";
 
     boolean result = reviewVerifier.doesMeetQualityStandards(review);
-    Assertions.assertFalse(result);
+    assertFalse(result, "ReviewVerifier did not detect swear word.");
+//    assertFalse(result);
+//    assertEquals(false, result);
   }
 }
